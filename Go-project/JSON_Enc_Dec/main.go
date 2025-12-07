@@ -34,8 +34,7 @@ func main() {
 		// fmt.Printf("Data from API: %+v", todoItem)
 		decoder := json.NewDecoder(res.Body)
 		decoder.DisallowUnknownFields()
-		if err := decoder.Decode(&todoItem); err != nil 
-		{
+		if err := decoder.Decode(&todoItem); err != nil {
 			log.Fatal("Decoder Error", err)
 		}
 		fmt.Printf("Data from API: %+v", todoItem)
