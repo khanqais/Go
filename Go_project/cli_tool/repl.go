@@ -35,6 +35,25 @@ func startRepl() {
 
 	}
 }
+type cliCommand struct{
+	name string 
+	description string
+	callback func()
+}
+func getCommands() map[string]cliCommand{
+	return map[string]cliCommand{
+		"help":{
+			name:"help",
+			description: "Print the help Menu",
+			callback: ,
+		}
+		"exist":{
+			name:"exit",
+			description:"Turn off the pokedex",
+			callback:
+		}
+	}
+}
 
 func clearInput(str string) []string {
 	lowered := strings.ToLower(str)
