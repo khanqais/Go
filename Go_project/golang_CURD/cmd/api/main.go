@@ -12,9 +12,9 @@ import (
 func main() {
 	cfg, err := config.Load()
 	if err != nil {
-		log.Fatalf("Config error")
+		log.Fatalf("Config error: %v", err)
 	}
-	client, _, err := db.Connect(cfg)
+	client, database, err := db.Connect(cfg)
 	if err != nil {
 		log.Fatalf("DB Error")
 	}
@@ -25,7 +25,7 @@ func main() {
 		}
 	}()
 
-	router := server.NewRouter()
+	router := server.NewRouter(database)
 
 	addr := fmt.Sprintf(":%s", cfg.ServerPort)
 	if err := router.Run(addr); err != nil {
