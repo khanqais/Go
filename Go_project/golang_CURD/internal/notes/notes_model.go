@@ -16,13 +16,13 @@ type Note struct {
 }
 
 type CreateNoteRequest struct {
-	Title   string `bson:"title" binding:"required"`
-	Content string `bson:"content" binding:"required"`
-	Pinned  bool   `bson:"pin" `
+	Title   string `bson:"title" binding:"required" json:"title"`
+	Content string `bson:"content" binding:"required" json:"content"`
+	Pinned  bool   `bson:"pin" json:"pin"`
 }
 
 type UpdateNoteReq struct {
-	Title   string `bson:"title" binding:"required"`
-	Content string `bson:"content" binding:"required"`
-	Pinned  bool   `bson:"pin" `
+	Title   string `bson:"title" binding:"required" json:"title"`
+	Content string `bson:"content" binding:"required" json:"content"`
+	Pinned  bool   `bson:"pin" json:"pin"`
 }

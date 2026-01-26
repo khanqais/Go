@@ -73,10 +73,10 @@ func (r *Repo) UpdateByID(ctx context.Context, id primitive.ObjectID, req Update
 
 	filter := bson.M{"_id": id}
 	update := bson.M{
-		"%set": bson.M{
+		"$set": bson.M{
 			"title":     req.Title,
 			"content":   req.Content,
-			"pinned":    req.Pinned,
+			"pin":       req.Pinned,
 			"UpdatedAt": time.Now().UTC(),
 		},
 	}
