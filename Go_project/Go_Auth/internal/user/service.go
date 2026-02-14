@@ -43,7 +43,7 @@ func (s *Service) Register(ctx context.Context, input RegisterInput) (AuthResult
 	if err == nil {
 		return AuthResult{}, errors.New("email is registered try diff")
 	}
-	if err != nil && !errors.Is(err, mongo.ErrNilDocument) {
+	if err != nil && !errors.Is(err, mongo.ErrNoDocuments) {
 		return AuthResult{}, err
 	}
 	hashBytes, err := bcrypt.GenerateFromPassword([]byte(pass), bcrypt.DefaultCost)

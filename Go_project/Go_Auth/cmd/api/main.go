@@ -21,7 +21,7 @@ func main() {
 			log.Printf("shutdown warning: %v ", err)
 		}
 	}()
-	router := httpserver.NewRouter()
+	router := httpserver.NewRouter(a)
 	//standard go type that run a http server
 	srv := &http.Server{
 		Addr:              ":5000",
