@@ -6,17 +6,16 @@ import (
 )
 
 func main() {
-	
 
 	start := time.Now()
 	go func() {
-		time.Sleep(300 * time.Microsecond)
+		time.Sleep(300 * time.Millisecond)
 		fmt.Println("goroutines A: Finished simulated API at", time.Since(start))
 	}()
 
 	go func() {
 		time.Sleep(150 * time.Millisecond)
-		fmt.Println("goroutines A: Finished simulated API at", time.Since(start))
+		fmt.Println("goroutines B: Finished simulated API at", time.Since(start))
 	}()
 	//main ->no waiting
 	fmt.Println("main: started two go routines at", time.Since(start))
